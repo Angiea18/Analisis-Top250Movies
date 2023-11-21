@@ -27,7 +27,7 @@ movies_posters = {
 "The Shawshank Redemption": "Movies_posters/The_Shawshank_Redemption.jpg",
 "The Godfather": "Movies_posters/The_Godfather.jpg",
 "The Dark Knight": "Movies_posters/The_Dark_Knight.jpg",
-"The Godfather Part II": "Movies_posters/The_Godfather_Part _II.jpg",
+"The Godfather Part II": "Movies_posters\\The_Godfather_Part _II.jpg",
 "12 Angry Men": "Movies_posters/12_Angry_Men.jpg",
 "Schindler's List": "Movies_posters/Schindler's_List.jpg",
 "The Lord of the Rings: The Return of the King": "Movies_posters/The_Lord_of_the_Rings_The_Return_of_the_King.jpg",
