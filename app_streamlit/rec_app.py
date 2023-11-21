@@ -24,9 +24,9 @@ similarity_matrix = cosine_similarity(df[features], df[features])
 posters_directory = "Movies_posters"
 
 movies_posters = {
-"The Shawshank Redemption": "The_Shawshank_Redemption.jpg",
-"The Godfather": "The_Godfather.jpg",
-"The Dark Knight": "The_Dark_Knight.jpg",
+"The Shawshank Redemption": "Movies_posters/The_Shawshank_Redemption.jpg",
+"The Godfather": "Movies_posters/The_Godfather.jpg",
+"The Dark Knight": "Movies_posters/The_Dark_Knight.jpg",
 "The Godfather Part II": "Movies_posters/The_Godfather_Part _II.jpg",
 "12 Angry Men": "Movies_posters/12_Angry_Men.jpg",
 "Schindler's List": "Movies_posters/Schindler's_List.jpg",
