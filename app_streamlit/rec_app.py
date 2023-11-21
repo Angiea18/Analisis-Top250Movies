@@ -25,7 +25,6 @@ posters_directory = "Movies_posters"
 
 movies_posters = {
 "The Shawshank Redemption": "Movies_posters/The_Shawshank_Redemption.jpg",
-"The Godfather": "The_Godfather.jpg",
 "The Dark Knight": "Movies_posters/The_Dark_Knight.jpg",
 "The Godfather Part II": "Movies_posters/The_Godfather_Part _II.jpg",
 "12 Angry Men": "Movies_posters/12_Angry_Men.jpg",
