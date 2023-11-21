@@ -23,19 +23,10 @@ similarity_matrix = cosine_similarity(df[features], df[features])
 # Directorio que contiene los pósters de las películas
 posters_directory = "Movies_posters"
 
-
-# Obtener la lista de nombres de archivo de las imágenes en el directorio
-posters_list = os.listdir(posters_directory)
-
-# Mostrar las imágenes
-for movie, poster_path in zip(df['movie_title'], posters_list):
-    st.write(movie)
-    st.image(os.path.join(posters_directory, poster_path), use_column_width=True)
-
 movies_posters = {
-"The Shawshank Redemption": "Movies_posters/The_Shawshank_Redemption.jpg",
-"The Godfather": "Movies_posters/The_Godfather.jpg",
-"The Dark Knight": "Movies_posters/The_Dark_Knight.jpg",
+"The Shawshank Redemption": "The_Shawshank_Redemption.jpg",
+"The Godfather": "The_Godfather.jpg",
+"The Dark Knight": "The_Dark_Knight.jpg",
 "The Godfather Part II": "Movies_posters/The_Godfather_Part _II.jpg",
 "12 Angry Men": "Movies_posters/12_Angry_Men.jpg",
 "Schindler's List": "Movies_posters/Schindler's_List.jpg",
