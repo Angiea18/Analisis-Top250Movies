@@ -24,14 +24,13 @@ similarity_matrix = cosine_similarity(df[features], df[features])
 posters_directory = "Movies_posters"
 
 
-# Verificar y cargar las imágenes
-for movie, poster_path in movies_posters.items():
-    full_path = os.path.join(posters_directory, poster_path)
-    
-    if os.path.exists(full_path):
-        st.image(full_path, caption=movie, width=150)
-    else:
-        st.warning(f"La imagen para {movie} no se pudo cargar. Ruta: {full_path}")
+# Obtener la lista de nombres de archivo de las imágenes en el directorio
+posters_list = os.listdir(posters_directory)
+
+# Mostrar las imágenes
+for movie, poster_path in zip(df['movie_title'], posters_list):
+    st.write(movie)
+    st.image(os.path.join(posters_directory, poster_path), use_column_width=True)
 
 movies_posters = {
 "The Shawshank Redemption": "Movies_posters/The_Shawshank_Redemption.jpg",
