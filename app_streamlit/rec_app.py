@@ -23,11 +23,21 @@ similarity_matrix = cosine_similarity(df[features], df[features])
 # Directorio que contiene los pósters de las películas
 posters_directory = "Movies_posters"
 
+
+# Verificar y cargar las imágenes
+for movie, poster_path in movies_posters.items():
+    full_path = os.path.join(posters_directory, poster_path)
+    
+    if os.path.exists(full_path):
+        st.image(full_path, caption=movie, width=150)
+    else:
+        st.warning(f"La imagen para {movie} no se pudo cargar. Ruta: {full_path}")
+
 movies_posters = {
 "The Shawshank Redemption": "Movies_posters/The_Shawshank_Redemption.jpg",
 "The Godfather": "Movies_posters/The_Godfather.jpg",
 "The Dark Knight": "Movies_posters/The_Dark_Knight.jpg",
-"The Godfather Part II": "Movies_posters\The_Godfather_Part _II.jpg",
+"The Godfather Part II": "Movies_posters/The_Godfather_Part _II.jpg",
 "12 Angry Men": "Movies_posters/12_Angry_Men.jpg",
 "Schindler's List": "Movies_posters/Schindler's_List.jpg",
 "The Lord of the Rings: The Return of the King": "Movies_posters/The_Lord_of_the_Rings_The_Return_of_the_King.jpg",
