@@ -32,9 +32,6 @@ def obtener_recomendaciones(pelicula_referencia, similarity_matrix, df, n=10):
 st.title("Welcome to FilmFinder!")
 st.markdown("Movie Recommendation System.")
 
-# Sección de la página de inicio con GIF animado
-st.image("cine.gif", width=500)
-
 # Crear un menú desplegable con la lista de películas
 pelicula_referencia = st.selectbox('Select a reference movie', df['name'])
 
