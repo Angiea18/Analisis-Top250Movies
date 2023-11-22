@@ -50,11 +50,16 @@ if st.button("Generate Recommendations"):
 
         for recomendacion in recomendaciones:
             info_adicional = df[df['name'] == recomendacion][['name', 'year', 'run_time', 'genre']].values
-            st.write(f"Info adicional para {recomendacion}: {info_adicional}")
-            table_data.append([recomendacion, info_adicional[0], info_adicional[1], info_adicional[2], info_adicional[3]])
+
+            # Asegurarse de que info_adicional es un array unidimensional
+            if len(info_adicional) > 0:
+                info_adicional = info_adicional[0]
+
+                # Añadir datos a la tabla
+                table_data.append([recomendacion, info_adicional[0], info_adicional[1], info_adicional[2], info_adicional[3]])
 
         # Mostrar la tabla
-        st.write(f"Tabla de datos: {table_data}")
         st.table(pd.DataFrame(table_data, columns=['Name', 'Year', 'Duration', 'Genre']))
     else:
         st.write("No recommendations found.")
+
