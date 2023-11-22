@@ -31,4 +31,4 @@
 | box_office  | Recaudación total en taquilla en todo el mundo |
 | casts       | Todo el elenco de la película                  |
 | directors   | Director de la película                        |
-| writers     | Escritor de la película                        |
+| writers     | Escritor de la película                        | 
