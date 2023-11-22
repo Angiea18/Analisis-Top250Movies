@@ -58,8 +58,11 @@ if st.button("Generate Recommendations"):
                 # Añadir datos a la tabla
                 table_data.append([recomendacion, info_adicional[0], info_adicional[1], info_adicional[2], info_adicional[3]])
 
-        # Mostrar la tabla
-        st.table(pd.DataFrame(table_data, columns=['Name', 'Year', 'Duration', 'Genre']))
+        # Verificar si hay datos en la tabla_data antes de intentar crear el DataFrame
+        if table_data:
+            # Mostrar la tabla
+            st.table(pd.DataFrame(table_data, columns=['Name', 'Year', 'Duration', 'Genre']))
+        else:
+            st.write("No recommendations found.")
     else:
         st.write("No recommendations found.")
-
