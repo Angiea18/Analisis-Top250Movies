@@ -49,7 +49,6 @@ def eda_section():
     st.subheader("Top 10 Películas por Género")
     top_rates = df.nlargest(10, 'rating')
     fig = go.Figure(data=[go.Bar(x=top_rates['genre'], y=top_rates['rating'], marker={'color': '#00FA9A'})])
-    fig.update_layout(title='Top 10 Películas por Género')
     st.plotly_chart(fig)
 
      # Gráfico de barras para representar las 10 películas con las calificaciones más altas
@@ -91,18 +90,18 @@ def eda_section():
     fig_pie = px.pie(avg_ratings, names='certificate', values='rating')
     st.plotly_chart(fig_pie)
 
-    # Gráfico de tabla que proporciona una visualización clara de las 15 películas más antiguas
+    # Gráfico de tabla que proporciona una visualización clara de las 10 películas más antiguas
     st.subheader("Películas Más Antiguas")
-    peliculas_antiguas = df.sort_values(by='year').head(15)
+    peliculas_antiguas = df.sort_values(by='year').head(10)
     fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='green'),
                                                 cells=dict(values=[peliculas_antiguas['name'], peliculas_antiguas['year']]))
                                          ])
     fig_table_antiguas.update_layout(title_text='Películas Más Antiguas')
     st.plotly_chart(fig_table_antiguas)
 
-    # Gráfico de tabla que proporciona una visualización clara de las 15 películas más recientes
+    # Gráfico de tabla que proporciona una visualización clara de las 10 películas más recientes
     st.subheader("Películas Más Recientes")
-    peliculas_recientes = df.sort_values(by='year', ascending=False).head(15)
+    peliculas_recientes = df.sort_values(by='year', ascending=False).head(10)
     fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='green'),
                                                   cells=dict(values=[peliculas_recientes['name'], peliculas_recientes['year']]))
                                            ])
