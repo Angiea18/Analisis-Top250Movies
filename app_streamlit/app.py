@@ -76,6 +76,7 @@ def eda_section():
     st.subheader("Calificaciones de Películas por Género y Año")
     agrupar_df = df.groupby(['genre', 'year', 'rating']).size().reset_index(name='count')
     fig_sunburst = px.sunburst(agrupar_df, path=['genre', 'year', 'rating'], values='count')
+    fig_sunburst.update_layout( height=1200, width=1200)
     st.plotly_chart(fig_sunburst)
 
     # Gráfico de línea que visualiza cómo la calificación promedio de las películas ha cambiado a lo largo de los años
