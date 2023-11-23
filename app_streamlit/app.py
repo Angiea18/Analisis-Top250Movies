@@ -56,7 +56,6 @@ def eda_section():
     st.subheader("Top 10 Películas por Calificación (Rating)")
     top_movies = df.nlargest(10, 'rating')
     fig = go.Figure(data=[go.Bar(x=top_movies['name'], y=top_movies['rating'], marker={'color': '#3CB371'})])
-    fig.update_layout(title='Top 10 Películas por Calificación (Rating)')
     st.plotly_chart(fig)
 
     # Gráfico de barras para representar los 10 directores principales según las calificaciones más altas
@@ -76,26 +75,26 @@ def eda_section():
     st.subheader("Calificaciones de Películas por Género y Año")
     agrupar_df = df.groupby(['genre', 'year', 'rating']).size().reset_index(name='count')
     fig_sunburst = px.sunburst(agrupar_df, path=['genre', 'year', 'rating'], values='count')
-    fig_sunburst.update_layout( height=1200, width=1200)
+    fig_sunburst.update_layout( height=1100, width=1100)
     st.plotly_chart(fig_sunburst)
 
     # Gráfico de línea que visualiza cómo la calificación promedio de las películas ha cambiado a lo largo de los años
     st.subheader("Calificación Promedio a lo Largo del Tiempo")
     agrupar_df = df.groupby('year')['rating'].mean().reset_index()
-    fig_line = px.line(agrupar_df, x='year', y='rating', title='Calificación Promedio a lo Largo del Tiempo', color_discrete_sequence=['#00FF00'])
+    fig_line = px.line(agrupar_df, x='year', y='rating', color_discrete_sequence=['#00FF00'])
     fig_line.update_layout(xaxis_title='Año', yaxis_title='Calificación Promedio')
     st.plotly_chart(fig_line)
 
     # Pie Chart para analizar cómo distribuyen las calificaciones promedio de las películas en diferentes certificados
     st.subheader("Calificaciones Promedio por Certificado")
     avg_ratings = df.groupby('certificate')['rating'].mean().reset_index()
-    fig_pie = px.pie(avg_ratings, names='certificate', values='rating', title='Calificaciones promedio por certificado')
+    fig_pie = px.pie(avg_ratings, names='certificate', values='rating')
     st.plotly_chart(fig_pie)
 
     # Gráfico de tabla que proporciona una visualización clara de las 15 películas más antiguas
     st.subheader("Películas Más Antiguas")
     peliculas_antiguas = df.sort_values(by='year').head(15)
-    fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='lightgreen'),
+    fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='green'),
                                                 cells=dict(values=[peliculas_antiguas['name'], peliculas_antiguas['year']]))
                                          ])
     fig_table_antiguas.update_layout(title_text='Películas Más Antiguas')
@@ -104,7 +103,7 @@ def eda_section():
     # Gráfico de tabla que proporciona una visualización clara de las 15 películas más recientes
     st.subheader("Películas Más Recientes")
     peliculas_recientes = df.sort_values(by='year', ascending=False).head(15)
-    fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='lightgreen'),
+    fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='green'),
                                                   cells=dict(values=[peliculas_recientes['name'], peliculas_recientes['year']]))
                                            ])
     fig_table_recientes.update_layout(title_text='Películas Más Recientes')
@@ -160,7 +159,7 @@ def recommend_section():
                     table_data.append({
                         'Name': recomendacion,
                         'Year': info_adicional[0],
-                        'Duration': info_adicional[1],
+                        'Runtime': info_adicional[1],
                         'Genre': info_adicional[2]
                     })
 
@@ -169,7 +168,7 @@ def recommend_section():
                 df_table = pd.DataFrame(table_data)
 
                 # Mostrar la tabla
-                st.table(df_table[['Name', 'Year', 'Duration', 'Genre']])
+                st.table(df_table[['Name', 'Year', 'Runtime', 'Genre']])
             else:
                 st.write("No se encontraron recomendaciones.")
         else:
