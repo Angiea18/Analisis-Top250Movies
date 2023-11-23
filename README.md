@@ -41,7 +41,7 @@ Visualizaciones Destacadas:
 ![Tabla](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Pel%C3%ADculasantiguas.png)
 - Películas Más Recientes: Una vista de las películas más recientes.
 ![Tabla](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Peliculasrecientes.png)
-- Cantidad de Películas para cada Certificado: Una tabla que nos muestra la cantidad de pel´que hay para cada certificación. La descripción de estas esta en el 
+- Cantidad de Películas para cada Certificado: Una tabla que nos muestra la cantidad de películas que hay para cada certificación. La descripción de estas esta en el [Diccionario de certificados](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/Diccionario_Certificados.md)
 ![Tabla](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Certificaciones.png)
 
 
