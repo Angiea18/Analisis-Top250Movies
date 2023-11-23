@@ -96,7 +96,6 @@ def eda_section():
     fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='green'),
                                                 cells=dict(values=[peliculas_antiguas['name'], peliculas_antiguas['year']]))
                                          ])
-    fig_table_antiguas.update_layout(title_text='Películas Más Antiguas')
     st.plotly_chart(fig_table_antiguas)
 
     # Gráfico de tabla que proporciona una visualización clara de las 10 películas más recientes
@@ -105,7 +104,6 @@ def eda_section():
     fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='green'),
                                                   cells=dict(values=[peliculas_recientes['name'], peliculas_recientes['year']]))
                                            ])
-    fig_table_recientes.update_layout(title_text='Películas Más Recientes')
     st.plotly_chart(fig_table_recientes)
 
     # Nube de palabras para visualizar de manera efectiva los géneros de películas más frecuentes en el conjunto de datos
