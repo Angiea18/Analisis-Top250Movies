@@ -74,20 +74,14 @@ def eda_section():
     st.subheader("Calificaciones de Películas por Género y Año")
     agrupar_df = df.groupby(['genre', 'year', 'rating']).size().reset_index(name='count')
     fig_sunburst = px.sunburst(agrupar_df, path=['genre', 'year', 'rating'], values='count')
-<<<<<<< HEAD
-=======
     fig_sunburst.update_layout( height=1100, width=1100)
->>>>>>> a3911d1ec6757eb3dca9fb21e06b59487a231936
     st.plotly_chart(fig_sunburst)
 
     # Gráfico de línea que visualiza cómo la calificación promedio de las películas ha cambiado a lo largo de los años
     st.subheader("Calificación Promedio a lo Largo del Tiempo")
     agrupar_df = df.groupby('year')['rating'].mean().reset_index()
-<<<<<<< HEAD
     fig_line = px.line(agrupar_df, x='year', y='rating', title='Calificación Promedio a lo Largo del Tiempo', color_discrete_sequence=['#00FF00'])
-=======
     fig_line = px.line(agrupar_df, x='year', y='rating', color_discrete_sequence=['#00FF00'])
->>>>>>> a3911d1ec6757eb3dca9fb21e06b59487a231936
     fig_line.update_layout(xaxis_title='Año', yaxis_title='Calificación Promedio')
     st.plotly_chart(fig_line)
 
@@ -97,32 +91,29 @@ def eda_section():
     fig_pie = px.pie(avg_ratings, names='certificate', values='rating')
     st.plotly_chart(fig_pie)
 
-<<<<<<< HEAD
     # Gráfico de tabla que proporciona una visualización clara de las 15 películas más antiguas
     st.subheader("Películas Más Antiguas")
     peliculas_antiguas = df.sort_values(by='year').head(15)
     fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='lightgreen'),
-=======
+
     # Gráfico de tabla que proporciona una visualización clara de las 10 películas más antiguas
     st.subheader("Películas Más Antiguas")
     peliculas_antiguas = df.sort_values(by='year').head(10)
     fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='green'),
->>>>>>> a3911d1ec6757eb3dca9fb21e06b59487a231936
                                                 cells=dict(values=[peliculas_antiguas['name'], peliculas_antiguas['year']]))
                                          ])
     st.plotly_chart(fig_table_antiguas)
 
-<<<<<<< HEAD
+
     # Gráfico de tabla que proporciona una visualización clara de las 15 películas más recientes
     st.subheader("Películas Más Recientes")
     peliculas_recientes = df.sort_values(by='year', ascending=False).head(15)
     fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='lightgreen'),
-=======
+
     # Gráfico de tabla que proporciona una visualización clara de las 10 películas más recientes
     st.subheader("Películas Más Recientes")
     peliculas_recientes = df.sort_values(by='year', ascending=False).head(10)
     fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='green'),
->>>>>>> a3911d1ec6757eb3dca9fb21e06b59487a231936
                                                   cells=dict(values=[peliculas_recientes['name'], peliculas_recientes['year']]))
                                            ])
     st.plotly_chart(fig_table_recientes)
