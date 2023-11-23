@@ -105,7 +105,7 @@ def eda_section():
     # Gráfico de tabla que proporciona una visualización clara de las 10 películas más recientes
     st.subheader("Películas Más Recientes")
     peliculas_recientes = df.sort_values(by='year', ascending=False).head(10)
-    fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='lightgreen'),
+    fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='green'),
                                                     cells=dict(values=[peliculas_recientes['name'], peliculas_recientes['year']]))
                                             ])
     st.plotly_chart(fig_table_recientes)
