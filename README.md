@@ -1,5 +1,6 @@
 
 # Top 250 IMDB Movies: Análisis y Sistema de Recomendación
+![imdb](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/imdb.jpg)
 
 Este proyecto se sumerge en el fascinante mundo del cine a través del análisis del Top 250 IMDB Movies, explorando las tendencias, patrones y características de las películas mejor valoradas. Además, implementamos un sistema de recomendación cinematográfica que utiliza datos detallados para sugerir películas personalizadas basadas en las preferencias del usuario. La combinación de análisis exhaustivo y recomendaciones inteligentes proporciona una experiencia cinematográfica única y adaptada a cada individuo, llevando la magia del cine directamente a los gustos personales de los espectadores.
 
@@ -21,25 +22,27 @@ Para comprender la estructura y composición del conjunto de datos, se realizó 
 Visualizaciones Destacadas:
 
 - Top del Rating según el Género: Descubre las mejores películas clasificadas por género.
-![]()
+![Tabla](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/TopGeneros.png)
 - Top 10 Películas por Género: Una mirada a las joyas cinematográficas en diferentes géneros.
-![]()
+![Bar Chart](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Top10Genero.png)
 - Top 10 Películas por Calificación (Rating): Las películas que destacan por sus altas calificaciones.
-![]()
+![Bar Chart](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Top10Calificacion.png)
 - Top 10 de Directores por Rating: Reconocimiento a los directores con las mejores calificaciones.
-![]()
+![Bar Chart](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Top10Director.png)
 - Distribución de Ratings: Un histograma que revela la diversidad en las calificaciones.
-![]()
+![](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Histograma.png)
 - Calificaciones de Películas por Género y Año: Una visión temporal de las calificaciones en función del género.
-![]()
+![Pie Chart](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/clasificacionGeneroA%C3%B1o.png)
 - Calificación Promedio a lo Largo del Tiempo: Un viaje a través de las tendencias de calificación a lo largo de los años.
-![Linechart](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/AvgCalificaciones.png)
+![Line Chart](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/AvgCalificaciones.png)
 - Calificaciones Promedio por Certificado: Descubre cómo se distribuyen las calificaciones según los certificados.
-![]()
+![Pie Chart](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/PiechartAVGcalificaciones.png)
 - Películas Más Antiguas: Una tabla que presenta las películas más antiguas del conjunto.
-![]()
+![Tabla](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Pel%C3%ADculasantiguas.png)
 - Películas Más Recientes: Una vista de las películas más recientes.
-![]()
+![Tabla](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Peliculasrecientes.png)
+- Cantidad de Películas para cada Certificado: Una tabla que nos muestra la cantidad de pel´que hay para cada certificación. La descripción de estas esta en el 
+![Tabla](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/Certificaciones.png)
 
 
 ### Sistema de Recomendación
@@ -58,7 +61,7 @@ En la sección de **Sistema de Recomendación de Películas**, se ha implementad
 - Se excluye la película de referencia de la lista de recomendaciones.
 5. Presentación de Resultados:
 - Se muestra una tabla con información detallada sobre las 10 mejores recomendaciones, incluyendo nombre, año de lanzamiento, duración y género.
-![Resultado]()
+![Resultado](https://github.com/Angiea18/Analisis-Top250Movies/blob/main/_src/ResultadoRecomendacion.png)
 
 Este sistema permite a los usuarios descubrir nuevas películas que son similares a sus elecciones favoritas, proporcionando una experiencia personalizada de exploración cinematográfica.
 
@@ -71,3 +74,5 @@ Tanto el Análisis Exploratorio de Datos como el Sistema de Recomendación está
 ## Conclusiones
 
 - La exploración de 'IMDB Top 250 Movies' destaca la diversidad y atemporalidad del cine. La presencia de diversos géneros, directores y años refleja la riqueza de la industria. Desde clásicos hasta películas contemporáneas, la lista demuestra que la calidad cinematográfica trasciende las décadas, ofreciendo una mirada fascinante a través del tiempo.
+
+- La combinación del Análisis Exploratorio de Datos (EDA) y el Sistema de Recomendación en una interfaz de usuario Streamlit proporciona una plataforma integral para explorar y disfrutar del vasto mundo del cine. Desde la comprensión de las tendencias de calificación hasta la emoción de descubrir películas similares, esta aplicación ofrece una experiencia envolvente y personalizada para los amantes del cine.
