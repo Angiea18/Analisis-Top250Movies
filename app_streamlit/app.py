@@ -112,24 +112,24 @@ st.plotly_chart(fig_table_recientes)
 
 
     # Nube de palabras para visualizar de manera efectiva los géneros de películas más frecuentes en el conjunto de datos
-    st.subheader("Nube de Palabras de Géneros de Películas")
-    all_genres = " ".join(token for token in df["genre"])
-    wordcloud = WordCloud(stopwords=stopwords_wc,
-                      max_words=1500,
-                      max_font_size=350, random_state=42,
-                      width=2000, height=1000,
-                      colormap="viridis",
-                      contour_color='steelblue')
-    wordcloud.generate(all_genres)
-    plt.figure(figsize=(16, 8))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis("off")
-    st.pyplot(plt.gcf())
+st.subheader("Nube de Palabras de Géneros de Películas")
+all_genres = " ".join(token for token in df["genre"])
+wordcloud = WordCloud(stopwords=stopwords_wc,
+                    max_words=1500,
+                    max_font_size=350, random_state=42,
+                    width=2000, height=1000,
+                    colormap="viridis",
+                    contour_color='steelblue')
+wordcloud.generate(all_genres)
+plt.figure(figsize=(16, 8))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+st.pyplot(plt.gcf())
 
     # Verificación de la cantidad de películas para cada certificado en el DataFrame
-    st.subheader("Cantidad de Películas para cada Certificado")
-    certificate_counts = df['certificate'].value_counts()
-    st.table(certificate_counts)
+st.subheader("Cantidad de Películas para cada Certificado")
+certificate_counts = df['certificate'].value_counts()
+st.table(certificate_counts)
 
 # Función para sistema de recomendación
 def recommend_section():
