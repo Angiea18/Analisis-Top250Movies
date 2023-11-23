@@ -99,10 +99,14 @@ def eda_section():
     # Gráfico de tabla que proporciona una visualización clara de las 10 películas más antiguas
     st.subheader("Películas Más Antiguas")
     peliculas_antiguas = df.sort_values(by='year').head(10)
-    fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='green'),
-                                                cells=dict(values=[peliculas_antiguas['name'], peliculas_antiguas['year']]))
-                                         ])
+    fig_table_antiguas = go.Figure(data=[
+        go.Table(
+            header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='green'),
+            cells=dict(values=[peliculas_antiguas['name'], peliculas_antiguas['year']])
+        )
+    ])
     st.plotly_chart(fig_table_antiguas)
+
 
 
     # Gráfico de tabla que proporciona una visualización clara de las 15 películas más recientes
