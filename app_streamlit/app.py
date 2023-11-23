@@ -41,60 +41,58 @@ def eda_section():
     st.subheader("Top del Rating según el Género")
     df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
     top_rates = df.groupby('genre')['rating'].mean().sort_values(ascending=False).head(10)
-    top_rates_df = pd.DataFrame({'genre': top_rates.index, 'rating': top_rates.values}).round(2)
+    top_rates_df = pd.DataFrame({'Género': top_rates.index, 'Calificación': top_rates.values})
+    top_rates_df['Calificación'] = top_rates_df['Calificación'].apply(lambda x: f'{x:.1f}')
     st.table(top_rates_df)
 
     # Gráfico de barras para representar las 10 películas con las calificaciones más altas, clasificadas por género
-    st.subheader("Gráfico de Barras - Top 10 Películas por Género")
+    st.subheader("Top 10 Películas por Género")
     top_rates = df.nlargest(10, 'rating')
     fig = go.Figure(data=[go.Bar(x=top_rates['genre'], y=top_rates['rating'], marker={'color': '#00FA9A'})])
     fig.update_layout(title='Top 10 Películas por Género')
     st.plotly_chart(fig)
 
      # Gráfico de barras para representar las 10 películas con las calificaciones más altas
-    st.subheader("Gráfico de Barras - Top 10 Películas por Calificación (Rating)")
+    st.subheader("Top 10 Películas por Calificación (Rating)")
     top_movies = df.nlargest(10, 'rating')
     fig = go.Figure(data=[go.Bar(x=top_movies['name'], y=top_movies['rating'], marker={'color': '#3CB371'})])
     fig.update_layout(title='Top 10 Películas por Calificación (Rating)')
     st.plotly_chart(fig)
 
     # Gráfico de barras para representar los 10 directores principales según las calificaciones más altas
-    st.subheader("Gráfico de Barras - Top 10 Películas por Directores")
+    st.subheader("Top 10 Películas por Directores")
     top_movies_d = df.nlargest(10, 'rating')
     fig_directors = go.Figure(data=[go.Bar(x=top_movies_d['directors'], y=top_movies_d['rating'], marker={'color': '#2E8B57'})])
-    fig_directors.update_layout(title='Top 10 Películas por Directores')
     st.plotly_chart(fig_directors)
 
     # Histograma que representa la distribución de los ratings en el conjunto de datos
-    st.subheader("Histograma - Distribución de Ratings")
+    st.subheader("Distribución de Ratings")
     plt.hist(df['rating'], bins=20, color='green')
     plt.xlabel('Rating')
     plt.ylabel('Frecuencia')
-    plt.title('Distribución de Ratings')
     st.pyplot(plt.gcf()) 
 
     # Sunburst que representa cómo se distribuyen las calificaciones de las películas en función de su género y año de lanzamiento
-    st.subheader("Sunburst - Calificaciones de Películas por Género y Año")
+    st.subheader("Calificaciones de Películas por Género y Año")
     agrupar_df = df.groupby(['genre', 'year', 'rating']).size().reset_index(name='count')
     fig_sunburst = px.sunburst(agrupar_df, path=['genre', 'year', 'rating'], values='count')
-    fig_sunburst.update_layout(title='Calificaciones de Películas por Género y Año', height=1200, width=1200)
     st.plotly_chart(fig_sunburst)
 
     # Gráfico de línea que visualiza cómo la calificación promedio de las películas ha cambiado a lo largo de los años
-    st.subheader("Gráfico de Línea - Calificación Promedio a lo Largo del Tiempo")
+    st.subheader("Calificación Promedio a lo Largo del Tiempo")
     agrupar_df = df.groupby('year')['rating'].mean().reset_index()
     fig_line = px.line(agrupar_df, x='year', y='rating', title='Calificación Promedio a lo Largo del Tiempo', color_discrete_sequence=['#00FF00'])
-    fig_line.update_layout(xaxis_title='Year', yaxis_title='Calificación Promedio')
+    fig_line.update_layout(xaxis_title='Año', yaxis_title='Calificación Promedio')
     st.plotly_chart(fig_line)
 
     # Pie Chart para analizar cómo distribuyen las calificaciones promedio de las películas en diferentes certificados
-    st.subheader("Pie Chart - Calificaciones Promedio por Certificado")
+    st.subheader("Calificaciones Promedio por Certificado")
     avg_ratings = df.groupby('certificate')['rating'].mean().reset_index()
     fig_pie = px.pie(avg_ratings, names='certificate', values='rating', title='Calificaciones promedio por certificado')
     st.plotly_chart(fig_pie)
 
     # Gráfico de tabla que proporciona una visualización clara de las 15 películas más antiguas
-    st.subheader("Gráfico de Tabla - Películas Más Antiguas")
+    st.subheader("Películas Más Antiguas")
     peliculas_antiguas = df.sort_values(by='year').head(15)
     fig_table_antiguas = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lanzamiento'], fill_color='lightgreen'),
                                                 cells=dict(values=[peliculas_antiguas['name'], peliculas_antiguas['year']]))
@@ -103,7 +101,7 @@ def eda_section():
     st.plotly_chart(fig_table_antiguas)
 
     # Gráfico de tabla que proporciona una visualización clara de las 15 películas más recientes
-    st.subheader("Gráfico de Tabla - Películas Más Recientes")
+    st.subheader("Películas Más Recientes")
     peliculas_recientes = df.sort_values(by='year', ascending=False).head(15)
     fig_table_recientes = go.Figure(data=[go.Table(header=dict(values=['Nombre de la Película', 'Año de Lazamiento'], fill_color='lightgreen'),
                                                   cells=dict(values=[peliculas_recientes['name'], peliculas_recientes['year']]))
@@ -112,7 +110,7 @@ def eda_section():
     st.plotly_chart(fig_table_recientes)
 
     # Nube de palabras para visualizar de manera efectiva los géneros de películas más frecuentes en el conjunto de datos
-    st.subheader("Nube de Palabras - Géneros de Películas")
+    st.subheader("Nube de Palabras de Géneros de Películas")
     all_genres = " ".join(token for token in df["genre"])
     wordcloud = WordCloud(stopwords=stopwords_wc,
                       max_words=1500,
