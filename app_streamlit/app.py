@@ -41,7 +41,7 @@ def eda_section():
     st.subheader("Top del Rating según el Género")
     df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
     top_rates = df.groupby('genre')['rating'].mean().sort_values(ascending=False).head(10)
-    top_rates_df = pd.DataFrame({'Género': top_rates.index, 'Calificación': top_rates.values}).round(1)
+    top_rates_df = pd.DataFrame({'Género': top_rates.index, 'Calificación': top_rates.values.round(1)}).round(1)
     st.table(top_rates_df)
 
     # Gráfico de barras para representar las 10 películas con las calificaciones más altas, clasificadas por género
